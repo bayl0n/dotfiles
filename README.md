@@ -58,4 +58,4 @@ and inside the .vimrc file, I add the line
 set number
 ```
 
-at the top usually.
+at the top usually. Feel free to refer to the .vimrc file included in the repo to see how the .vimrc file is supposed to look like.
