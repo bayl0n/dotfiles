@@ -36,3 +36,26 @@ cd ~/.vim_runtime
 git pull --rebase
 python update_plugins.py
 ```
+
+Note: You will have to install python if you don't already have it installed.
+
+```
+sudo apt-get install python
+```
+
+### Tweaking the .vimrc
+
+Once all of that is installed, for some reason line numbers aren't installed by default, so I like to add it in the .vimrc file (it is located at ~/.vimrc).
+
+So to edit it I enter
+```
+vim ~/.vimrc
+```
+
+and inside the .vimrc file, I add the line
+
+```
+set number
+```
+
+at the top usually.
