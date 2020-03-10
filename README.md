@@ -61,3 +61,10 @@ set number
 at the top usually.
 
 Feel free to refer to the .vimrc file included in the repo to see how the .vimrc file is supposed to look like.
+
+### Uninstalling The Ultimate .vimrc
+
+```
+rm -R ~/.vim_runtime
+rm ~/.vimrc
+```
