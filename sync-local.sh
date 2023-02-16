@@ -10,10 +10,6 @@ err() {
 	echo "$*" >&2; exit 1;
 }
 
-backup() {
-	echo "You wan't me to back you up, buddy"
-}
-
 sync_nvim() {
 	if [[ -z "$NVIM_SOURCE_PATH" ]];
 	then
@@ -64,6 +60,11 @@ case $1 in
 	"tmux")
 		sync_tmux "$@"
 		;;
+	"help")
+		echo "\
+usage: ./sync_local [ nvim|tmux ] <optional destination>"
+		;;
+
 	*)
 		err "No arguments or command doesn't exist"
 		;;
