@@ -188,9 +188,10 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz')
 -- Quick map to normal mode from insert mode
 vim.keymap.set('i', ';;', '<Esc>')
 
--- Keep search navigation centred
+-- Keep navigation centred
 vim.keymap.set('n', 'n', 'nzzzv')
 vim.keymap.set('n', 'N', 'Nzzzv')
+vim.keymap.set('n', 'G', 'Gzz')
 
 -- Buffer keymaps
 vim.keymap.set('n', '<leader>bn', ':bn<CR>', { desc = '[B]uffer [N]ext' })
