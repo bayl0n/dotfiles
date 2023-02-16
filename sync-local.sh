@@ -34,7 +34,7 @@ sync_nvim() {
 sync_tmux() {
 	if [[ -z "$TMUX_SOURCE_PATH" ]];
 	then
-		err "Source path for nvim config is empty"
+		err "Source path for tmux config is empty"
 	fi
 
 	TMUX_DESTINATION_FINAL="$2" && [[ -z "$2" ]] && TMUX_DESTINATION_FINAL="$TMUX_DESTINATION_PATH"
@@ -46,7 +46,7 @@ sync_tmux() {
 
 	if (cp "$TMUX_SOURCE_PATH" "$TMUX_DESTINATION_FINAL");
 	then
-		echo "Successfully synced nvim into $TMUX_DESTINATION_FINAL"
+		echo "Successfully synced tmux into $TMUX_DESTINATION_FINAL"
 	else
 		err "Cannot sync files."
 	fi
