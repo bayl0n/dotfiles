@@ -48,6 +48,9 @@ require('packer').startup(function(use)
   use 'tpope/vim-rhubarb'
   use 'lewis6991/gitsigns.nvim'
 
+  -- Phabricator related plugins
+  use 'jparise/vim-phabricator'
+
   use 'marko-cerovac/material.nvim' -- Theme inspired by JetBrains
   use 'navarasu/onedark.nvim' -- Theme inspired by Atom
   use 'nvim-lualine/lualine.nvim' -- Fancier statusline
@@ -62,6 +65,9 @@ require('packer').startup(function(use)
     requires = {
       'nvim-lua/plenary.nvim',
       'nvim-telescope/telescope-live-grep-args.nvim',
+    config = function()
+      require("telescope").load_extension("live_grep_args")
+    end
     }
   }
 
@@ -70,16 +76,6 @@ require('packer').startup(function(use)
 
   -- ThePrimeagen's Vim Game
   use 'ThePrimeagen/vim-be-good'
-
-  use {
-    "nvim-telescope/telescope.nvim",
-    requires = {
-      { "nvim-telescope/telescope-live-grep-args.nvim" },
-    },
-    config = function()
-      require("telescope").load_extension("live_grep_args")
-    end
-  }
   
   -- Add custom plugins to packer from ~/.config/nvim/lua/custom/plugins.lua
   local has_plugins, plugins = pcall(require, 'custom.plugins')
@@ -92,8 +88,7 @@ require('packer').startup(function(use)
   end
 end)
 
--- When we are bootstrapping a configuration, it doesn't
--- make sense to execute the rest of the init.lua.
+-- When we are bootstrapping a configuration, it doesn't make sense to execute the rest of the init.lua.
 --
 -- You'll need to restart nvim, and then it will work.
 if is_bootstrap then
@@ -198,9 +193,8 @@ vim.keymap.set('n', '<leader>bn', ':bn<CR>', { desc = '[B]uffer [N]ext' })
 vim.keymap.set('n', '<leader>bp', ':bp<CR>', { desc = '[B]uffer [P]revious' })
 vim.keymap.set('n', '<leader>bd', ':bd<CR>', { desc = '[B]uffer [D]elete' })
 
--- Window keymaps
-vim.keymap.set('n', '<C-w>%', ':vsplit<CR>', { desc = 'Split view vertically' })
-vim.keymap.set('n', '<C-w>"', ':split<CR>', { desc = 'Split view horizontally' })
+-- Netrw keymaps
+vim.keymap.set('n', '<leader>E', ':E<CR>', { desc = '[E]xplore' })
 
 -- Live (rip)Grep Args
 vim.keymap.set("n", "<leader>sr", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", { desc = '[S]earch [R]ipgrep' })
@@ -408,12 +402,12 @@ local servers = {
   -- rust_analyzer = {},
   -- tsserver = {},
 
-  sumneko_lua = {
-    Lua = {
-      workspace = { checkThirdParty = false },
-      telemetry = { enable = false },
-    },
-  },
+  -- sumneko_lua = {
+  --   Lua = {
+  --     workspace = { checkThirdParty = false },
+  --     telemetry = { enable = false },
+  --   },
+  -- },
 }
 
 -- Setup neovim lua configuration
